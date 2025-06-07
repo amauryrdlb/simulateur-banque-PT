@@ -1,3 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulateur Banque PT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+    header {
+      background-color: #222;
+      color: #00d1ff;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 4px solid #00d1ff;
+    }
+    h1, h2 {
+      margin: 0 0 10px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px 20px;
+      background-color: #2b2b2b;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0, 209, 255, 0.2);
+      margin-top: 30px;
+    }
+    label {
+      margin-top: 15px;
+      display: block;
+      font-weight: 600;
+    }
+    input[type='number'] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background-color: #1e1e1e;
+      color: #fff;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #00d1ff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover {
+      background-color: #00a3cc;
+    }
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #123;
+      border-left: 5px solid #00d1ff;
+      border-radius: 5px;
+      white-space: normal;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: #888;
+      margin-top: 40px;
+    }
+    footer a {
+      margin: 0 10px;
+      color: #00d1ff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔧 Simulateur Banque PT</h1>
+    <p>Évalue tes chances aux concours Arts & Métiers et CentraleSupélec</p>
+  </header>
+
+  <div class="container">
+    <form id="notesForm">
+      <h2>Notes écrites</h2>
+      <label>Maths A :</label><input type="number" name="mathsA" min="0" max="20" step="0.01" />
+      <label>Maths B :</label><input type="number" name="mathsB" min="0" max="20" step="0.01" />
+      <label>Maths C :</label><input type="number" name="mathsC" min="0" max="20" step="0.01" />
+      <label>Physique A :</label><input type="number" name="physiqueA" min="0" max="20" step="0.01" />
+      <label>Physique B :</label><input type="number" name="physiqueB" min="0" max="20" step="0.01" />
+      <label>Sciences Industrielles A :</label><input type="number" name="si1" min="0" max="20" step="0.01" />
+      <label>Sciences Industrielles B :</label><input type="number" name="si2" min="0" max="20" step="0.01" />
+      <label>Sciences Industrielles C :</label><input type="number" name="si3" min="0" max="20" step="0.01" />
+      <label>Informatique :</label><input type="number" name="info" min="0" max="20" step="0.01" />
+      <label>Anglais A :</label><input type="number" name="anga" min="0" max="20" step="0.01" />
+      <label>Anglais B :</label><input type="number" name="angb" min="0" max="20" step="0.01" />
+      <label>Français A :</label><input type="number" name="fra" min="0" max="20" step="0.01" />
+      <label>Français B :</label><input type="number" name="frb" min="0" max="20" step="0.01" />
+
+      <button type="submit">Calculer mes chances</button>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <footer>
+    <p>🔗 Liens utiles :
+      <a href="https://forum.prepas.org/viewforum.php?f=17" target="_blank" rel="noopener noreferrer">Forum PT</a> |
+      <a href="https://www.scei-concours.fr" target="_blank" rel="noopener noreferrer">Site SCEI</a> |
+      <a href="https://oldccp.scei-concours.fr/cpge/statistique/2024/pt.php" target="_blank" rel="noopener noreferrer">Statistiques 2024</a>
+    </p>
+  </footer>
 <script>
   document.getElementById('notesForm').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -89,3 +211,7 @@
     resultDiv.innerHTML += resultArts + '<hr>' + resultCentrale;
   });
 </script>
+
+
+  </body>
+</html>
