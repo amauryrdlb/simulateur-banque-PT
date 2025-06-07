@@ -175,6 +175,22 @@
       return "😬 Désolé, il faudrait un miracle...";
     }
 
+    function calculerMoyenneEcrits(notes, coeffs) {
+      let totalPoints = 0;
+      let totalCoeff = 0;
+
+      for (const matiere in coeffs) {
+        if (matiere !== 'totalOral') {
+          const note = notes[matiere] || 0;
+          const coeff = coeffs[matiere];
+          totalPoints += note * coeff;
+          totalCoeff += coeff;
+        }
+      }
+
+      return totalCoeff > 0 ? (totalPoints / totalCoeff).toFixed(2) : 'N/A';
+    }
+
     function calculerPoints(notes, coeffs, barre, nomEcole) {
       let total = 0;
       for (const matiere in coeffs) {
@@ -183,8 +199,11 @@
         }
       }
 
+      const moyenneEcrits = calculerMoyenneEcrits(notes, coeffs);
+
       let message = `<h3>${nomEcole}</h3>`;
       message += `Total points écrits : <strong>${total.toFixed(2)}</strong> / ${barre} <br>`;
+      message += `Moyenne écrits : <strong>${moyenneEcrits} / 20</strong><br>`;
 
       const restants = barre - total;
 
